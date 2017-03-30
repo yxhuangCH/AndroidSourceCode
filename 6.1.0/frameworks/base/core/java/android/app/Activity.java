@@ -6189,6 +6189,7 @@ public class Activity extends ContextThemeWrapper
 
         mFragments.attachHost(null /*parent*/);
 
+        // 生成一个 PhoneWindow 对象
         mWindow = new PhoneWindow(this);
         mWindow.setCallback(this);
         mWindow.setOnWindowDismissedCallback(this);
@@ -6223,6 +6224,7 @@ public class Activity extends ContextThemeWrapper
             }
         }
 
+        // 创建 WindowManage 对象
         mWindow.setWindowManager(
                 (WindowManager)context.getSystemService(Context.WINDOW_SERVICE),
                 mToken, mComponent.flattenToString(),

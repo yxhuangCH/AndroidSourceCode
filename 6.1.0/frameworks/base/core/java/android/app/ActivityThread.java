@@ -3162,6 +3162,7 @@ public final class ActivityThread {
             }
             if (r.window == null && !a.mFinished && willBeVisible) {
                 r.window = r.activity.getWindow();
+                // 获取一个 View 对象
                 View decor = r.window.getDecorView();
                 decor.setVisibility(View.INVISIBLE);
                 ViewManager wm = a.getWindowManager();

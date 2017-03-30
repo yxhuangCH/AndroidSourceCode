@@ -3848,6 +3848,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         int features = getLocalFeatures();
         // System.out.println("Features: 0x" + Integer.toHexString(features));
         if ((features & (1 << FEATURE_SWIPE_TO_DISMISS)) != 0) {
+            // 根据情况取得对应标题栏的资源 id
             layoutResource = R.layout.screen_swipe_dismiss;
         } else if ((features & ((1 << FEATURE_LEFT_ICON) | (1 << FEATURE_RIGHT_ICON))) != 0) {
             if (mIsFloating) {
@@ -3906,6 +3907,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
 
         mDecor.startChanging();
 
+        // 将标题栏 View 添加到 DecorView 中 
         View in = mLayoutInflater.inflate(layoutResource, null);
         decor.addView(in, new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT));
         mContentRoot = (ViewGroup) in;
@@ -3970,6 +3972,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
 
     private void installDecor() {
         if (mDecor == null) {
+            // 创建 DecorView
             mDecor = generateDecor();
             mDecor.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
             mDecor.setIsRootNamespace(true);
@@ -3978,6 +3981,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             }
         }
         if (mContentParent == null) {
+            // 得到 ContentParent
             mContentParent = generateLayout(mDecor);
 
             // Set up decor part of UI to ignore fitsSystemWindows if appropriate.
@@ -4026,6 +4030,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
                     invalidatePanelMenu(FEATURE_ACTION_BAR);
                 }
             } else {
+                // 创建标题栏
                 mTitleView = (TextView)findViewById(R.id.title);
                 if (mTitleView != null) {
                     mTitleView.setLayoutDirection(mDecor.getLayoutDirection());
