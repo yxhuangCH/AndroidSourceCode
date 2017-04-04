@@ -296,6 +296,7 @@ public final class WindowManagerGlobal {
                 }
             }
 
+            // 创建 ViewRoot
             root = new ViewRootImpl(view.getContext(), display);
 
             view.setLayoutParams(wparams);
