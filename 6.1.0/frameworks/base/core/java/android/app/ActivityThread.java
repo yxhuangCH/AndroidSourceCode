@@ -3165,6 +3165,7 @@ public final class ActivityThread {
                 // 获取一个 View 对象
                 View decor = r.window.getDecorView();
                 decor.setVisibility(View.INVISIBLE);
+                // 获取 ViewManager
                 ViewManager wm = a.getWindowManager();
                 WindowManager.LayoutParams l = r.window.getAttributes();
                 a.mDecor = decor;
@@ -3172,6 +3173,7 @@ public final class ActivityThread {
                 l.softInputMode |= forwardBit;
                 if (a.mVisibleFromClient) {
                     a.mWindowAdded = true;
+                    // 将 View 添加到 ViemManager 中
                     wm.addView(decor, l);
                 }
 

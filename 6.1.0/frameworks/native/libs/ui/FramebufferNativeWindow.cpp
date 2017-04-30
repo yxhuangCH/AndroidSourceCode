@@ -139,6 +139,7 @@ FramebufferNativeWindow::FramebufferNativeWindow()
             }
         }
 
+        // 为本地窗口赋属性值
         const_cast<uint32_t&>(ANativeWindow::flags) = fbDev->flags;
         const_cast<float&>(ANativeWindow::xdpi) = fbDev->xdpi;
         const_cast<float&>(ANativeWindow::ydpi) = fbDev->ydpi;
@@ -150,6 +151,7 @@ FramebufferNativeWindow::FramebufferNativeWindow()
         ALOGE("Couldn't get gralloc module");
     }
 
+    // 窗口“协议
     ANativeWindow::setSwapInterval = setSwapInterval;
     ANativeWindow::dequeueBuffer = dequeueBuffer;
     ANativeWindow::queueBuffer = queueBuffer;
@@ -233,6 +235,7 @@ int FramebufferNativeWindow::dequeueBuffer_DEPRECATED(ANativeWindow* window,
     return result;
 }
 
+// 分配一个可用于渲染的缓冲区
 int FramebufferNativeWindow::dequeueBuffer(ANativeWindow* window,
         ANativeWindowBuffer** buffer, int* fenceFd)
 {
