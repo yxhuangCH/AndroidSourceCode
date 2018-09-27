@@ -2332,6 +2332,7 @@ public final class ActivityThread {
         }
 
         try {
+            // 创建 Application Context, 
             Application app = r.packageInfo.makeApplication(false, mInstrumentation);
 
             if (localLOGV) Slog.v(TAG, "Performing launch of " + r);

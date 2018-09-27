@@ -325,7 +325,7 @@ public final class SystemServer {
         // permissions.  We need this to complete before we initialize other services.
         Installer installer = mSystemServiceManager.startService(Installer.class);
 
-        // Activity manager runs the show.
+        // Activity mana ger runs the show.
         mActivityManagerService = mSystemServiceManager.startService(
                 ActivityManagerService.Lifecycle.class).getService();
         mActivityManagerService.setSystemServiceManager(mSystemServiceManager);
